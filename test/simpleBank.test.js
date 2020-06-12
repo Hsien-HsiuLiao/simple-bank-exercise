@@ -67,6 +67,7 @@ contract('SimpleBank', function(accounts) {
 
   it("should not be able to withdraw more than has been deposited", async() => {
     await instance.enroll({from: alice})
+    //console.log(await instance.enroll({from: alice}));
     await instance.deposit({from: alice, value: deposit})
     await catchRevert(instance.withdraw(deposit + 1, {from: alice}))
   })
